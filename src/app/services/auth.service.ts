@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
-
-  login(username: string, password: string){
-    return this.http.post('URL_AQUI', { username, password });
-  }
+login(username: string, password: string) {
+if (username === 'admin' && password === '1234') {
+return of(true);
+}
+return of(false);
+}
 }
